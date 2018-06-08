@@ -3,17 +3,26 @@ body{
     font-family: 'Orbitron', sans-serif;
     text-align: center;
     color: white;
+    font-size:2vw;
 }
 
 header{
     margin-top:2%;
     padding-bottom:2%;
+    font-size: 3vw;
+    text-align: center;
+
 }
 
 #instructions{
-    margin-top:2%;
-    margin-right:25%;
-    margin-left:25%;
+    margin:0 auto;
+    text-align: center;
+    width:70%;
+
+}
+.game-container{
+    margin:0 auto;
+    width:80%;
 }
 
 #timer{
@@ -22,25 +31,30 @@ header{
 
 #question{
     padding-bottom:2%;
+    font-size:4vw;
 }
 
 .btn-light{
     width:100%;
     margin-bottom:3%;
-    padding-top:4%;
-    padding-bottom:4;
+    /* padding-top:4%;
+    padding-bottom:4%; */
     color: rgb(82, 82, 82);
-    font-size: 125%;
+    font-size: 2vw;
 }
 
 #pushStart, #startOver{
-    padding:20px;
-    font-size:20px;
+    padding:1%;
+    font-size:2vw;
     
 }
 
+/* #picture img{
+    width:400px;
+} */
+
 #picture img{
-    width:40%;
+    width:50%;
 }
 
 #BG{
@@ -53,3 +67,17 @@ header{
     opacity: .2;
 }
 
+.btn-light:hover{
+    cursor: pointer;
+}
+
+#pushStart, #startOver:hover{
+    cursor: pointer;
+}
+/* #border{
+    z-index: 2;
+    position:fixed;
+    left:36.85%;
+    width:450px;
+
+} */

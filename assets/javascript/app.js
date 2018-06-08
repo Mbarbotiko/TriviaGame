@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var triviaQuestions = [{
+    var triviaQuestions = [{//variable/array of objects, inside of object there are key value pairs, key =question: inside of an object that is called a key.  an object is a list of key balue pairs separated by commas, the keys are called properties is the whole thing a property or key research this.
         question: "This game featured two plumbers with impressive mustaches",
         answerList: ["Double Dragon", "Tale of Two Brothers", "Super Mario Bro's", "Bubble Bobble"],
         answer: 2
@@ -23,11 +23,31 @@ $(document).ready(function () {
         answerList: ["Streets of Rage", "River City Ransom", "Street Fighter", "Mortal Combat"],
         answer: 2
 
+    },
+    {
+        question: "A box + a bad guy=!",
+        answerList: ["Duke Nukem", "Metal Gear Solid", "Doom", "Metroid"],
+        answer: 1
+    },
+    {
+        question: "He's on FIRE!",
+        answerList: ["Tecmo Bowl", "Tony Hawks Pro Skater", "NBA Live", "NBA Jam"],
+        answer: 3
+    },
+    {
+        question: "Monsters that fit in your pocket",
+        answerList: ["Pokemon", "Kirby", "Spyro the Dragon", "Rampage"],
+        answer: 0
+    },
+    {
+        question: "It's her name but everyone thinks its his",
+        answerList: ["Final Fantasy", "Zelda", "Princess Peach", "Tekken"],
+        answer: 1
     }];
 
     //setting up object triviaQuestions with properties like question and an array of answers as well as a numerical key(index) that refers to the correct answer in the array.
 
-    var pictureArray = ['mario', 'sonic', 'punchout2', 'pacman', 'streetfighter'];
+    var pictureArray = ['mario2', 'sonic', 'punchout3', 'pacman', 'streetfighter', 'metalgear2', 'nbajam', 'pokemon', 'zelda'];
     //setting up an array to cycle through in order with the questions to show the answer page letting user know if they were right or wrong and showing them a picure as well as text of what the corret answer is.
 
     var correctCount;
@@ -78,9 +98,11 @@ $(document).ready(function () {
 
     function countdown() {
         seconds = 10;
-        $('#timer').html('<h3>Hurry Up!: ' + seconds + '</h3>');
+        $('#timer').html('<p>Hurry Up!: ' + seconds + '</p>');
         answered = true;
-        time = setInterval(showCountdown, 1000);
+        time = setInterval(showCountdown, 1000);//this is taking in two parameters
+
+        //passing data is a argument, if you're recieveing data its a parameter.
     }
 
     //setting up a function that counts down from 10 seconds, the variable seconds is given a value of 10, the timer DIV is targeted and HTML is written into it with an h3 tag that tells the user the remaining amount of time.  Setting variable answered to true boolean because if the timer hasnt run out yet the user would have answered adding to the answered variable which shows user their results at the end. Giving variable a method of setInterval calling showCountdown function for 1 second which will run it every second.
@@ -90,7 +112,7 @@ $(document).ready(function () {
 
     function showCountdown() {
         seconds--;
-        $('#timer').html('<h3>Hurry Up!: ' + seconds + '</h3>');
+        $('#timer').html('<p>Hurry Up!: ' + seconds + '</p>');
         if (seconds < 1) {
             clearInterval(time);
             answered = false;
@@ -137,7 +159,7 @@ $(document).ready(function () {
         //selecting the question div from HTML to write the current question number the user is on added +1 otherwise it starts @ 0 and you cant be on question 0 in people speak.  The other number is drawn by the number of trivia questions we have length pulls the number from that list.
 
 
-        $('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
+        $('.question').html('<p>' + triviaQuestions[currentQuestion].question + '</p>');//accessing array using [index of this array].question is how to access the object, then an array is in the object using index of the array.(template literals google this and learn es 6 syntax, what I am using is es 5 syntax)
         //using HTML to overwrite the last question (if there was a last one otherwise writing the first one)
         for (var i = 0; i < 4; i++) {
             var choices = $('<button type="button" class=" btn-light"></button>');
@@ -185,7 +207,9 @@ $(document).ready(function () {
 
 
         var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-        $('#picture').html('<img src = "assets/images/' + pictureArray[currentQuestion] + '.jpeg">');
+        $('#picture').append('<img src = "assets/images/' + pictureArray[currentQuestion] + '.jpg">');
+        // $('#picture').append('<img id=border src = "assets/images/border.gif">');  working on auto overlay of images.
+
         //setting variable accessing the index of the right answer sets path to the answer in the object, then targets the picture div adds the picture using html method then picks the picture from the array created with the pictures and targets the current question so the correct picture is displayed
 
 
@@ -197,13 +221,13 @@ $(document).ready(function () {
         } else if ((userChoice != rightAnswerIndex) && (answered == true)) {
             incorrectAnswer++;
             $('#message').html(messages.incorrect);
-            $('#answer').html('<h4>The right answer is: </h4>' + rightAnswerText);
+            $('#answer').html('<p>The right answer is: </p>' + rightAnswerText);
             //ig the users choice does not match the right answer and they did answer show the incorrect message string set in the incorrect variable then show the user the correct answer in the correct answer div displaying text and the right answer targeted in the object with the variable rightAnswerText set up earlier.
             soundNo.play();
         } else {
             incorrectAnswer++;
             $('#message').html(messages.endTime);
-            $('#answer').html('<h4>The right answer is: </h4>' + rightAnswerText);
+            $('#answer').html('<p>The right answer is: </p>' + rightAnswerText);
             answered = true;
             soundNo.play();
             //if the user didnt answer add 1 to incorrect answer, show message set in variable end time, then display the correct answer.
@@ -245,7 +269,7 @@ $(document).ready(function () {
         $('#message').empty();
         $('#correctedAnswer').empty();
         $('#picture').empty();
-        $('#score').html('<h4>Your Score: ' + Math.round(results) + '%<h4>');
+        $('#score').html('<p>Your Score: ' + Math.round(results) + '%<p>');
         $('#startOver').show();
         resultsOfGame();
         music.pause();
