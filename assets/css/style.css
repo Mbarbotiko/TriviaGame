@@ -7,8 +7,8 @@ body{
 }
 
 header{
-    margin-top:2%;
-    padding-bottom:2%;
+    margin-top:1%;
+    padding-bottom:1%;
     font-size: 3vw;
     text-align: center;
 
@@ -22,7 +22,7 @@ header{
 }
 .game-container{
     margin:0 auto;
-    width:80%;
+    width:100%;
 }
 
 #timer{
@@ -37,8 +37,8 @@ header{
 .btn-light{
     width:100%;
     margin-bottom:3%;
-    /* padding-top:4%;
-    padding-bottom:4%; */
+    padding-top:1%;
+    padding-bottom:1%;
     color: rgb(82, 82, 82);
     font-size: 2vw;
 }
@@ -81,3 +81,18 @@ header{
     width:450px;
 
 } */
+
+
+@media only screen and (max-width: 600px) and (min-width: 300px)  
+{
+    .btn-light{
+
+        font-size: 4vw;
+    }
+
+    body{
+
+        font-size:4vw;
+    }
+
+}
