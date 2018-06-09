@@ -83,7 +83,7 @@ header{
 } */
 
 
-@media only screen and (max-width: 600px) and (min-width: 300px)  
+@media only screen and (max-width: 600px) and (min-width: 100px)  
 {
     .btn-light{
 
@@ -100,6 +100,17 @@ header{
         font-size: 6vw;
 
     
+    }
+
+    #picture img{
+        width:75%;
+        margin-top:20%;
+    }
+
+    #pushStart, #startOver{
+        padding:3%;
+        font-size:4vw;
+        
     }
     
 
